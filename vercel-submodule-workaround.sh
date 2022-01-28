@@ -1,5 +1,6 @@
 # github submodule repo address without https:// prefix
-SUBMODULE_GITHUB=github.com/beeinger/vercel-private-submodule
+SUBMODULE_GITHUB_1=github.com/jordantaillefer/tutorial-next-1
+SUBMODULE_GITHUB_2=github.com/jordantaillefer/tutorial-next-2
 
 # .gitmodules submodule path
 SUBMODULE_PATH=library
@@ -19,6 +20,8 @@ output=`git submodule status --recursive` # get submodule info
 no_prefix=${output#*-} # get rid of the prefix
 COMMIT=${no_prefix% *} # get rid of the suffix
 
+echo COMMIT
+
 # set up an empty temporary work directory
 rm -rf tmp || true # remove the tmp folder if exists
 mkdir tmp # create the tmp folder
@@ -26,8 +29,7 @@ cd tmp # go into the tmp folder
 
 # checkout the current submodule commit
 git init # initialise empty repo
-echo $GITHUB_ACCESS_TOKEN + $SUBMODULE_GITHUB
-git remote add origin https://$GITHUB_ACCESS_TOKEN@$SUBMODULE_GITHUB # add origin of the submodule
+git remote add origin https://$GITHUB_ACCESS_TOKEN@$SUBMODULE_GITHUB_1 # add origin of the submodule
 git fetch --depth=1 origin $COMMIT # fetch only the required version
 git checkout $COMMIT # checkout on the right commit
 
