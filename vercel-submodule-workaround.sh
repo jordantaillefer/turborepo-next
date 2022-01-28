@@ -1,9 +1,10 @@
 # github submodule repo address without https:// prefix
-SUBMODULE_GITHUB_1=github.com/jordantaillefer/tutorial-next-1
 SUBMODULE_GITHUB_2=github.com/jordantaillefer/tutorial-next-2
 
 # .gitmodules submodule path
-SUBMODULE_PATH=library
+SUBMODULE_PATH=tutorial-next-2
+
+GITHUB_ACCESS_TOKEN=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
 
 # github access token is necessary
 # add it to Environment Variables on Vercel
@@ -17,8 +18,10 @@ set -e
 
 # get submodule commit
 output=`git submodule status --recursive` # get submodule info
-no_prefix=${output#*-} # get rid of the prefix
-COMMIT=${no_prefix% *} # get rid of the suffix
+echo "output $output"
+no_suffix=${output% apps/tutorial-next-2*} # get rid of the suffix
+echo "no_suffix $no_suffix"
+COMMIT=${no_suffix#*)} # get rid of the prefix
 
 echo $COMMIT
 
