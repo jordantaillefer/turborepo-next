@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "poc-tutorial-next-turbo",
   "version": "1.0.0",
   "main": "index.js",
