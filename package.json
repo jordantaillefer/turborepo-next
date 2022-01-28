@@ -4,9 +4,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "vercel-install": "./vercel-submodule-workaround.sh && yarn --ignore-scripts --production=false"
-  },
   "workspaces": [
     "packages/*",
     "apps/*"
