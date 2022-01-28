@@ -1,0 +1,42 @@
+{
+  "baseBranch": "origin/master",
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**"
+      ]
+    },
+    "test": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "deploy": {
+      "dependsOn": [
+        "build",
+        "test",
+        "lint"
+      ]
+    },
+    "tutorial-next-1#e2e:headless": {
+      "dependsOn": [
+        "tutorial-next-1#deploy"
+      ]
+    },
+    "tutorial-next-2#e2e:headless": {
+      "dependsOn": [
+        "tutorial-next-2#deploy"
+      ]
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}
