@@ -1,7 +1,0 @@
-[submodule "tutorial-next-1"]
-	path = apps/tutorial-next-1
-	url = https://github.com/jordantaillefer/tutorial-next-1
-
-[submodule "tutorial-next-2"]
-	path = apps/tutorial-next-2
-	url = https://github.com/jordantaillefer/tutorial-next-2
